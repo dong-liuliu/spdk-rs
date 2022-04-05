@@ -116,17 +116,6 @@ fn configure_spdk() -> Result<LibraryConfig, Error> {
     spdk_lib.exclude_lib("spdk_sock_uring");
     spdk_lib.exclude_lib("spdk_ut_mock");
 
-    spdk_lib.mark_system("aio");
-    spdk_lib.mark_system("bsd");
-    spdk_lib.mark_system("crypto");
-    spdk_lib.mark_system("dl");
-    spdk_lib.mark_system("m");
-    spdk_lib.mark_system("numa");
-    spdk_lib.mark_system("pcap");
-    spdk_lib.mark_system("rt");
-    spdk_lib.mark_system("uring");
-    spdk_lib.mark_system("uuid");
-
     spdk_lib.set_static_search(true);
 
     spdk_lib.find_lib("libdpdk")?;
@@ -144,6 +133,8 @@ fn configure_spdk() -> Result<LibraryConfig, Error> {
         "spdk_bdev_nvme",
         "spdk_bdev_uring",
         "spdk_bdev_virtio",
+        "spdk_bdev_ocf",
+        "spdk_ocfenv",
         "spdk_env_dpdk",
         "spdk_env_dpdk_rpc",
         "spdk_event",
@@ -159,6 +150,17 @@ fn configure_spdk() -> Result<LibraryConfig, Error> {
     ])?;
 
     spdk_lib.find_lib("spdk_syslibs")?;
+
+    spdk_lib.mark_system("aio");
+    spdk_lib.mark_system("bsd");
+    spdk_lib.mark_system("crypto");
+    spdk_lib.mark_system("dl");
+    spdk_lib.mark_system("m");
+    spdk_lib.mark_system("numa");
+    spdk_lib.mark_system("pcap");
+    spdk_lib.mark_system("rt");
+    spdk_lib.mark_system("uring");
+    spdk_lib.mark_system("uuid");
 
     spdk_lib.dump();
 
@@ -279,6 +281,7 @@ fn main() {
         .allowlist_function("*.lvol.*")
         .allowlist_function("*.lvs.*")
         .allowlist_function("*.uring.*")
+        .allowlist_function("*.ocf.*")
         .allowlist_function("^iscsi.*")
         .allowlist_function("^spdk.*")
         .allowlist_function("create_malloc_disk")

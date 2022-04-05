@@ -6,6 +6,7 @@
 #include <bdev/malloc/bdev_malloc.h>
 #include <bdev/null/bdev_null.h>
 #include <bdev/uring/bdev_uring.h>
+#include <bdev/ocf/vbdev_ocf_fn.h>
 #include <iscsi/init_grp.h>
 #include <iscsi/iscsi.h>
 #include <iscsi/portal_grp.h>

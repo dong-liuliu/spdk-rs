@@ -240,6 +240,11 @@ impl LibraryConfig {
                     cp.to_str().unwrap()
                 );
                 append_path_var(OsStr::new("PKG_CONFIG_PATH_FOR_TARGET"), &cp);
+                println!(
+                    "Added PKG_CONFIG_PATH: {}",
+                    cp.to_str().unwrap()
+                );
+                append_path_var(OsStr::new("PKG_CONFIG_PATH"), &cp);
                 Ok(())
             }
             Err(e) => Err(Error::Generic(format!(

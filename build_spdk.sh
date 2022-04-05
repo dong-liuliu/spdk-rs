@@ -12,10 +12,11 @@ pushd spdk || { echo "Can not find spdk directory"; exit; }
 	--without-isal \
 	--with-crypto \
 	--with-uring \
+	--with-ocf \
 	--disable-unit-tests \
 	--disable-tests \
-	--with-fio=$(which fio | sed s';bin/fio;include;')
+	--with-fio=/home/xliu2/softwares/fio
 
-make -j $(nproc)
+make -j $(nproc) install
 
 popd || exit
