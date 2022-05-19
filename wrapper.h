@@ -31,6 +31,7 @@
 #include <spdk/thread.h>
 #include <spdk/uuid.h>
 #include <spdk/version.h>
+#include <spdk/vhost.h>
 #include <spdk_internal/event.h>
 #include <spdk_internal/init.h>
 #include <spdk_internal/thread.h>

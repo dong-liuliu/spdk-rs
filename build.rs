@@ -156,6 +156,7 @@ fn configure_spdk() -> Result<LibraryConfig, Error> {
         "spdk_event_vhost",
         "spdk_event_vmd",
         "spdk_nvmf",
+        "spdk_vhost",
     ])?;
 
     spdk_lib.find_lib("spdk_syslibs")?;
@@ -279,6 +280,7 @@ fn main() {
         .allowlist_function("*.lvol.*")
         .allowlist_function("*.lvs.*")
         .allowlist_function("*.uring.*")
+        .allowlist_function("*.vhost.*")
         .allowlist_function("^iscsi.*")
         .allowlist_function("^spdk.*")
         .allowlist_function("create_malloc_disk")
@@ -299,6 +301,7 @@ fn main() {
         .allowlist_type("^spdk_nvme_ns_flags")
         .allowlist_type("^spdk_nvme_registered_ctrlr.*")
         .allowlist_type("^spdk_nvme_reservation.*")
+        .allowlist_type("^spdk_vhost_dev")
         .allowlist_var("^NVMF.*")
         .allowlist_var("^SPDK.*")
         .allowlist_var("^spdk.*")
